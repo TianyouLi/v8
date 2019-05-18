@@ -930,14 +930,6 @@ RUNTIME_FUNCTION(Runtime_InNewSpace) {
   return isolate->heap()->ToBoolean(ObjectInYoungGeneration(obj));
 }
 
-RUNTIME_FUNCTION(Runtime_InvokeDynamic) {
-  DCHECK_EQ(1, args.length());
-  CONVERT_ARG_HANDLE_CHECKED(String,arg_string,0);
-  int n = (int)strtol(arg_string->ToCString().get(), (char**)NULL, 10);
-  v8::Testing::mark(n);  
-  return isolate->heap()->ToBoolean(n != 0);
-}
-
 RUNTIME_FUNCTION(Runtime_IsAsmWasmCode) {
   SealHandleScope shs(isolate);
   DCHECK_EQ(1, args.length());
