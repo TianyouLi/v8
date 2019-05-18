@@ -1206,6 +1206,9 @@ DEFINE_STRING(startup_blob, nullptr,
               "Write V8 startup blob file. (mksnapshot only)")
 DEFINE_STRING(target_os, nullptr, "The mksnapshot target os. (mksnapshot only)")
 
+// invoke dynamic library
+DEFINE_STRING(extlib_path, nullptr, "Invoke external library.")
+
 //
 // Minor mark compact collector flags.
 //

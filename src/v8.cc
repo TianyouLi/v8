@@ -18,6 +18,7 @@
 #include "src/frames.h"
 #include "src/interface-descriptors.h"
 #include "src/isolate.h"
+#include "src/invoke-dynamic.h"
 #include "src/libsampler/sampler.h"
 #include "src/objects-inl.h"
 #include "src/profiler/heap-profiler.h"

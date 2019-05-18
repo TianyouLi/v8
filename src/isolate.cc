@@ -3541,6 +3541,10 @@ bool Isolate::Init(ReadOnlyDeserializer* read_only_deserializer,
     PrintF("[Initializing isolate from scratch took %0.3f ms]\n", ms);
   }
 
+  if (FLAG_extlib_path) {
+    dynamic_function_.initialize(FLAG_extlib_path);
+  }
+  
   return true;
 }
 

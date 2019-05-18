@@ -19,6 +19,7 @@
 #include "src/base/macros.h"
 #include "src/builtins/builtins.h"
 #include "src/contexts.h"
+#include "src/invoke-dynamic.h"
 #include "src/debug/interface-types.h"
 #include "src/execution.h"
 #include "src/futex-emulation.h"
@@ -1027,6 +1028,8 @@ class Isolate final : private HiddenFactory {
   }
   HeapProfiler* heap_profiler() const { return heap_profiler_; }
 
+  DynamicFunction* dynamic_function() { return &dynamic_function_;}
+  
 #ifdef DEBUG
   static size_t non_disposed_isolates() { return non_disposed_isolates_; }
 #endif
@@ -1761,6 +1764,8 @@ class Isolate final : private HiddenFactory {
   typedef std::pair<InterruptCallback, void*> InterruptEntry;
   std::queue<InterruptEntry> api_interrupts_queue_;
 
+  DynamicFunction dynamic_function_;
+      
 #define GLOBAL_BACKING_STORE(type, name, initialvalue)                         \
   type name##_;
   ISOLATE_INIT_LIST(GLOBAL_BACKING_STORE)
